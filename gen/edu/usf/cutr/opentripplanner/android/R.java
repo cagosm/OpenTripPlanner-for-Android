@@ -131,22 +131,23 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int arrow=0x7f020000;
-        public static final int end=0x7f020001;
-        public static final int ic_launcher_opentripplanner=0x7f020002;
-        public static final int icon=0x7f020003;
-        public static final int mode_bicycle=0x7f020004;
-        public static final int mode_bus=0x7f020005;
-        public static final int mode_ferry=0x7f020006;
-        public static final int mode_gondola=0x7f020007;
-        public static final int mode_lite_rail=0x7f020008;
-        public static final int mode_plane=0x7f020009;
-        public static final int mode_rail=0x7f02000a;
-        public static final int mode_subway=0x7f02000b;
-        public static final int mode_tram=0x7f02000c;
-        public static final int mode_transfer=0x7f02000d;
-        public static final int mode_trolly=0x7f02000e;
-        public static final int mode_walk=0x7f02000f;
-        public static final int start=0x7f020010;
+        public static final int blue_pause=0x7f020001;
+        public static final int end=0x7f020002;
+        public static final int ic_launcher_opentripplanner=0x7f020003;
+        public static final int icon=0x7f020004;
+        public static final int mode_bicycle=0x7f020005;
+        public static final int mode_bus=0x7f020006;
+        public static final int mode_ferry=0x7f020007;
+        public static final int mode_gondola=0x7f020008;
+        public static final int mode_lite_rail=0x7f020009;
+        public static final int mode_plane=0x7f02000a;
+        public static final int mode_rail=0x7f02000b;
+        public static final int mode_subway=0x7f02000c;
+        public static final int mode_tram=0x7f02000d;
+        public static final int mode_transfer=0x7f02000e;
+        public static final int mode_trolly=0x7f02000f;
+        public static final int mode_walk=0x7f020010;
+        public static final int start=0x7f020011;
     }
     public static final class id {
         public static final int bottom=0x7f050001;

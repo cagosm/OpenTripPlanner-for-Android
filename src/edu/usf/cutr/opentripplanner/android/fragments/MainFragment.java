@@ -691,14 +691,19 @@ OTPGeocodingListener{
 		return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 	}
 
-	public void moveMarker(Boolean start, Address addr) {
+	//cgandy - Added support for custom markers
+	public void moveMarker(int markerType, Address addr) {
 		GeoPoint point = new GeoPoint(addr.getLatitude(), addr.getLongitude());
-		if(start) {
+		if(markerType == 1) {
 			startMarker.setLocation(point);
 			tbStartLocation.setText(addr.getAddressLine(addr.getMaxAddressLineIndex()));
-		} else {
+		}
+		if(markerType == 0) {
 			endMarker.setLocation(point);
 			tbEndLocation.setText(addr.getAddressLine(addr.getMaxAddressLineIndex()));
+		}
+		if(markerType == 3){
+			//TODO - Custom Marker Logic
 		}
 
 	}
@@ -819,6 +824,7 @@ OTPGeocodingListener{
 	@Override
 	public void onOTPGeocodingComplete(final boolean isStartTextbox, ArrayList<Address> addressesReturn) {
 		// TODO Auto-generated method stub
+		int markerType = isStartTextbox ? 1 : 0;
 //		isRealLostFocus = false;
 		
 		AlertDialog.Builder geocoderAlert = new AlertDialog.Builder(this.getActivity());
@@ -835,7 +841,7 @@ OTPGeocodingListener{
 			alert.show();
 			return;
 		} else if(addressesReturn.size() == 1) {
-			moveMarker(isStartTextbox, addressesReturn.get(0));
+			moveMarker(markerType, addressesReturn.get(0));
 			return;
 		}
 
@@ -867,7 +873,8 @@ OTPGeocodingListener{
 									 addr.getAddressLine(1)+
 									 ((addr.getAddressLine(2)!=null) ? ", "+addr.getAddressLine(2) : "");
 				addr.setAddressLine(addr.getMaxAddressLineIndex()+1, addressLine);
-				moveMarker(isStartTextbox, addr);
+				int markerType = isStartTextbox ? 1 : 0;
+				moveMarker(markerType, addr);
 				Log.v(TAG, "Chosen: " + addressesText[item]);
 				adjustFocusAfterSelectAddress(isStartTextbox);
 			}

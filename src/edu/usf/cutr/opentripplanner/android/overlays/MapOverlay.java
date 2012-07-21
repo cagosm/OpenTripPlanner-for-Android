@@ -106,8 +106,9 @@ public class MapOverlay extends org.osmdroid.views.overlay.Overlay {
 	@Override
 	public boolean onLongPress(final MotionEvent e, final MapView mv) {
 		Log.d(TAG, "LONG PRESS!");
-
-		final CharSequence[] items = {"Start Location", "End Location"};
+		
+		//cgandy - Added support for custom markers
+		final CharSequence[] items = {"Start Location", "End Location", "Custom Marker"};
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(mainFragment.getActivity());
 		builder.setTitle("Choose Type for Point");
@@ -121,9 +122,12 @@ public class MapOverlay extends org.osmdroid.views.overlay.Overlay {
 				addr.setLongitude(point.getLongitudeE6()/1E6);
 				addr.setAddressLine(addr.getMaxAddressLineIndex()+1, mo.getLocationFormatedString());
 				if(items[item].equals("Start Location")) {
-					mainFragment.moveMarker(true, addr);
+					mainFragment.moveMarker(1, addr);
 				} else {
-					mainFragment.moveMarker(false, addr);
+					mainFragment.moveMarker(0, addr);
+				}
+				if(items[item].equals("Custom Marker")){
+					//TODO - Custom Marker Logic
 				}
 			}
 		});
