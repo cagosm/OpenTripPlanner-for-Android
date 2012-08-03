@@ -39,7 +39,6 @@ import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 
-import com.android.demo.notepad3.NoteEdit;
 
 import de.mastacode.http.Http;
 import edu.usf.cutr.opentripplanner.android.R;
