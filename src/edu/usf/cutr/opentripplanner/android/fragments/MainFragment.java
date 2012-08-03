@@ -134,6 +134,7 @@ OTPGeocodingListener{
 
 	MapOverlay startMarker;
 	MapOverlay endMarker;
+	MapOverlay customMarker;
 	OTPPathOverlay routeOverlay;
 
 	private SharedPreferences prefs;
@@ -361,6 +362,9 @@ OTPGeocodingListener{
 		endMarker = new MapOverlay(this, R.drawable.end, mainView);
 		endMarker.setLocation(currentLocation);
 		mv.getOverlays().add(endMarker);
+		
+		customMarker = new MapOverlay(this, R.drawable.blue_pause, mainView);
+		
 
 		routeOverlay = new OTPPathOverlay(Color.DKGRAY, activity);
 		mv.getOverlays().add(routeOverlay);
@@ -703,7 +707,8 @@ OTPGeocodingListener{
 			tbEndLocation.setText(addr.getAddressLine(addr.getMaxAddressLineIndex()));
 		}
 		if(markerType == 3){
-			//TODO - Custom Marker Logic
+			customMarker.setLocation(point);
+			mv.getOverlays().add(customMarker);
 		}
 
 	}
