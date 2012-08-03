@@ -39,6 +39,8 @@ import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 
+import com.android.demo.notepad3.NoteEdit;
+
 import de.mastacode.http.Http;
 import edu.usf.cutr.opentripplanner.android.R;
 import edu.usf.cutr.opentripplanner.android.MyActivity;
@@ -125,6 +127,7 @@ OTPGeocodingListener{
 	private Spinner ddlTravelMode;
 	private Button btnPlanTrip;
 
+	private static final int ACTIVITY_MARKER=0;
 //	private Spinner ddlGeocoder;
 
 	private Panel tripPanel;
@@ -888,4 +891,9 @@ OTPGeocodingListener{
 		alertGeocoder.show();
 
 	}
+	
+//	private void defineMarker() {
+//        Intent i = new Intent(this.getActivity(), markerDefine.class);
+//        startActivityForResult(i, ACTIVITY_MARKER);
+//    }
 }

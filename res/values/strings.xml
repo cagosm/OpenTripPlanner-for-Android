@@ -51,4 +51,7 @@
         <item>MapQuest Nominatim</item>
         <item>Google Places</item>
     </string-array>
+    <string name="marker_description">Description</string>
+    <string name="marker_title">Title</string>
+    <string name="marker_confirm">Confirm</string>
 </resources>
