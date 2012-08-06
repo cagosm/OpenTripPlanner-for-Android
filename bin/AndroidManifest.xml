@@ -36,8 +36,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".DirectionActivity" >
-        </activity>
+        <activity android:name=".DirectionActivity" />
+        <activity android:name=".MarkerActivity"/> 
 
         <service android:name=".NavigationService" />
     </application>

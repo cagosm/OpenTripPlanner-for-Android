@@ -27,6 +27,7 @@ import org.opentripplanner.api.model.Leg;
 import org.osmdroid.util.GeoPoint;
 
 import edu.usf.cutr.opentripplanner.android.fragments.DirectionListFragment;
+import edu.usf.cutr.opentripplanner.android.fragments.MarkerCreationFragment;
 import edu.usf.cutr.opentripplanner.android.fragments.MainFragment;
 import edu.usf.cutr.opentripplanner.android.listeners.OnFragmentListener;
 import edu.usf.cutr.opentripplanner.android.model.OTPBundle;
@@ -144,15 +145,36 @@ public class MyActivity extends FragmentActivity implements OnFragmentListener{
 	@Override
 	public void onSwitchedToDirectionFragment() {
 		// TODO Auto-generated method stub
+		
+		Fragment directionFragment = new DirectionListFragment();
+		
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction transaction = fm.beginTransaction();
 
-		Fragment directionFragment = new DirectionListFragment();
+		
 		transaction.add(R.id.mainFragment, directionFragment);
 		transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 		transaction.addToBackStack(null);
 
 		transaction.commit();
+	}
+	
+	@Override
+	public void onSwitchedToMarkerCreationFragment(GeoPoint p) {
+		
+		Fragment markerFragment = new MarkerCreationFragment();
+		
+		Bundle args = new Bundle();
+		args.putInt("Longitude",p.getLongitudeE6());
+		args.putInt("Latitude", p.getLatitudeE6());
+		markerFragment.setArguments(args);
+		FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        
+        transaction.replace(R.id.mainFragment, markerFragment);
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        transaction.addToBackStack(null);
+        transaction.commit();
 	}
 
 	@Override

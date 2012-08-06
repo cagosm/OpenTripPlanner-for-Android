@@ -108,7 +108,7 @@ public class MapOverlay extends org.osmdroid.views.overlay.Overlay {
 		Log.d(TAG, "LONG PRESS!");
 		
 		//cgandy - Added support for custom markers
-		final CharSequence[] items = {"Start Location", "End Location", "Custom Marker"};
+		final CharSequence[] items = {"Start Location", "End Location", "Accessibility Marker"};
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(mainFragment.getActivity());
 		builder.setTitle("Choose Type for Point");
@@ -126,8 +126,8 @@ public class MapOverlay extends org.osmdroid.views.overlay.Overlay {
 				} else {
 					mainFragment.moveMarker(0, addr);
 				}
-				if(items[item].equals("Custom Marker")){
-					//TODO - Custom Marker Logic
+				if(items[item].equals("Accessibility Marker")){
+					mainFragment.moveMarker(2, addr);
 				}
 			}
 		});

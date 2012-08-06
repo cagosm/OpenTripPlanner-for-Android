@@ -54,4 +54,7 @@
     <string name="marker_description">Description</string>
     <string name="marker_title">Title</string>
     <string name="marker_confirm">Confirm</string>
+    <string name="marker_type">Type</string>
+    <string name="marker_contributor">Contributor</string>
+    <string name="marker_create">Create Accessibility Marker</string>
 </resources>

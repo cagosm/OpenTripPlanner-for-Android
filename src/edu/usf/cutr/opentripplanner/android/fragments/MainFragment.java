@@ -80,6 +80,7 @@ import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -136,7 +137,7 @@ OTPGeocodingListener{
 
 	MapOverlay startMarker;
 	MapOverlay endMarker;
-	MapOverlay customMarker;
+	MapOverlay accessMarker;
 	OTPPathOverlay routeOverlay;
 
 	private SharedPreferences prefs;
@@ -365,7 +366,7 @@ OTPGeocodingListener{
 		endMarker.setLocation(currentLocation);
 		mv.getOverlays().add(endMarker);
 		
-		customMarker = new MapOverlay(this, R.drawable.blue_pause, mainView);
+		accessMarker = new MapOverlay(this, R.drawable.blue_pause, mainView);
 		
 
 		routeOverlay = new OTPPathOverlay(Color.DKGRAY, activity);
@@ -708,9 +709,11 @@ OTPGeocodingListener{
 			endMarker.setLocation(point);
 			tbEndLocation.setText(addr.getAddressLine(addr.getMaxAddressLineIndex()));
 		}
-		if(markerType == 3){
-			customMarker.setLocation(point);
-			mv.getOverlays().add(customMarker);
+		if(markerType == 2){
+			accessMarker.setLocation(point);
+			mv.getOverlays().add(accessMarker);
+			fragmentListener.onSwitchedToMarkerCreationFragment(point);
+			//defineMarker();
 		}
 
 	}
@@ -891,8 +894,5 @@ OTPGeocodingListener{
 
 	}
 	
-//	private void defineMarker() {
-//        Intent i = new Intent(this.getActivity(), markerDefine.class);
-//        startActivityForResult(i, ACTIVITY_MARKER);
-//    }
+	
 }

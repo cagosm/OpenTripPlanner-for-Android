@@ -25,6 +25,7 @@ import org.osmdroid.util.GeoPoint;
 import edu.usf.cutr.opentripplanner.android.model.OTPBundle;
 import edu.usf.cutr.opentripplanner.android.sqlite.ServersDataSource;
 
+import android.location.Address;
 import android.support.v4.app.Fragment;
 
 /**
@@ -42,6 +43,8 @@ public interface OnFragmentListener {
 	public List<Itinerary> getCurrentItineraryList();
 	
 	public int getCurrentItineraryIndex();
+	
+	public void onSwitchedToMarkerCreationFragment(GeoPoint p);
 	
 	public void onSwitchedToDirectionFragment();
 	
