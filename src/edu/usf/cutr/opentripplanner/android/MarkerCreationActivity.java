@@ -1,4 +1,5 @@
-package edu.usf.cutr.opentripplanner.android.fragments;
+package edu.usf.cutr.opentripplanner.android;
+
 
 
 
@@ -15,7 +16,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-public class MarkerCreationFragment extends Fragment {
+public class MarkerCreationActivity extends Activity {
 	
 	private EditText mTitleText;
 	private EditText mTypeText;
@@ -24,77 +25,51 @@ public class MarkerCreationFragment extends Fragment {
     private Long mRowId;
     private MarkerDbAdapter mDbHelper;
     
-    private OnFragmentListener fragmentListener;
+    //private OnFragmentListener fragmentListener;
     
-    private View formView = null;
     
-    public MarkerCreationFragment() {
-    	
-    }
 
-    @Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		try {
-			setFragmentListener((OnFragmentListener) activity);
-		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString() + " must implement OnFragmentListener");
-		}
-	}
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        formView = inflater.inflate(R.layout.edit_marker, container);
-
-        return formView;
-    }
     
     @Override
-	public void onActivityCreated(Bundle savedState) {
-		super.onActivityCreated(savedState);
-		
-		mDbHelper = new MarkerDbAdapter(this.getActivity());
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mDbHelper = new MarkerDbAdapter(this);
         mDbHelper.open();
         
-        mTitleText = (EditText) formView.findViewById(R.id.title);
-        mTypeText = (EditText) formView.findViewById(R.id.type);
-        mContributorText = (EditText) formView.findViewById(R.id.contributor);
-        mDescriptionText = (EditText) formView.findViewById(R.id.description);
+        setContentView(R.layout.edit_marker);
         
-        Button btnConfirm = (Button) formView.findViewById(R.id.confirm);
+        mTitleText = (EditText) findViewById(R.id.title);
+        mTypeText = (EditText) findViewById(R.id.type);
+        mContributorText = (EditText) findViewById(R.id.contributor);
+        mDescriptionText = (EditText) findViewById(R.id.description);
         
-        final OnFragmentListener ofl = this.getFragmentListener();
-		final MarkerCreationFragment mcf = this;
-		OnClickListener oclCreateMarker = new OnClickListener() {
-			@Override
-			public void onClick(View formView) {
-				if( (mTitleText.getText() != null) && 
-					(mTypeText.getText() != null)  &&
-					(mContributorText.getText() != null)  &&
-					(mDescriptionText.getText() != null) )
-					
-					ofl.onSwitchedToMainFragment(mcf);
-			}
-		};
-		btnConfirm.setOnClickListener(oclCreateMarker);
-        		
+        Button btnConfirm = (Button) findViewById(R.id.confirm);
+        
+        mRowId = (savedInstanceState == null) ? null :
+            (Long) savedInstanceState.getSerializable(MarkerDbAdapter.KEY_ROWID);
+		if (mRowId == null) {
+			Bundle extras = getIntent().getExtras();
+			mRowId = extras != null ? extras.getLong(MarkerDbAdapter.KEY_ROWID): null;
+		}
 		
+		btnConfirm.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                //setResult(RESULT_OK);
+                finish();
+            }
+
+        });
     }
+    
+    
     
     
     /**
 	 * @return the fragmentListener
 	 */
-	public OnFragmentListener getFragmentListener() {
-		return fragmentListener;
-	}
-
-	/**
-	 * @param fragmentListener the fragmentListener to set
-	 */
-	public void setFragmentListener(OnFragmentListener fragmentListener) {
-		this.fragmentListener = fragmentListener;
-	}
+	
 	
 	@Override
 	public void onPause() {
@@ -102,17 +77,40 @@ public class MarkerCreationFragment extends Fragment {
         saveState();
     }
 
-    
+	@Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        
+        saveState();
+        outState.putSerializable(MarkerDbAdapter.KEY_ROWID, mRowId);
+    }
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+	}
 
     private void saveState() {
+    	
+    	Integer latitude = null;
+    	Integer longitude = null;
         String title = mTitleText.getText().toString();
-        String type = mTitleText.getText().toString();
+        String type = mTypeText.getText().toString();
         String contributor = mContributorText.getText().toString();
         String description = mDescriptionText.getText().toString();
-        Integer latitude = this.getArguments().getInt("Latitude");
-        Integer longitude = this.getArguments().getInt("Longitude");
+        Bundle extras = getIntent().getExtras(); 
+        if(extras !=null)
+        {
+        latitude = extras.getInt("Latitude");
+        longitude = extras.getInt("Longitude");
+        }
 
-            long id = mDbHelper.createMarker(title, type, contributor, description, latitude, longitude);
+        long id = mDbHelper.createMarker(title, type, contributor, description, latitude, longitude);
             if (id > 0) {
                 mRowId = id;
             }

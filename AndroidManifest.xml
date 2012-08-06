@@ -37,7 +37,7 @@
         </activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".DirectionActivity" />
-        <activity android:name=".MarkerActivity"/> 
+        <activity android:name=".MarkerCreationActivity"/> 
 
         <service android:name=".NavigationService" />
     </application>

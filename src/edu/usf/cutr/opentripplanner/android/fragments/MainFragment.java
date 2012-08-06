@@ -40,7 +40,9 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 
 
+
 import de.mastacode.http.Http;
+import edu.usf.cutr.opentripplanner.android.MarkerCreationActivity;
 import edu.usf.cutr.opentripplanner.android.R;
 import edu.usf.cutr.opentripplanner.android.MyActivity;
 import edu.usf.cutr.opentripplanner.android.OTPApp;
@@ -543,6 +545,12 @@ OTPGeocodingListener{
 			needToRunAutoDetect = false;
 		}
 	}
+	
+	@Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //outState.putInt("curChoice", mCurCheckPosition);
+    }
 
 	@Override
 	public void onPause() {
@@ -712,11 +720,15 @@ OTPGeocodingListener{
 		if(markerType == 2){
 			accessMarker.setLocation(point);
 			mv.getOverlays().add(accessMarker);
-			fragmentListener.onSwitchedToMarkerCreationFragment(point);
-			//defineMarker();
+			Intent i = new Intent(this.getActivity(), MarkerCreationActivity.class);
+			i.putExtra("Latitude", point.getLatitudeE6());
+			i.putExtra("Longitude", point.getLongitudeE6());
+	        this.getActivity().startActivity(i);
 		}
 
 	}
+	
+	
 
 	public void zoomToCurrentLocation() {
 		GeoPoint p = LocationUtil.getLastLocation(this.getActivity());
