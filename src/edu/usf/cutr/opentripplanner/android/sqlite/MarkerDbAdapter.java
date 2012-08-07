@@ -40,15 +40,15 @@ public class MarkerDbHelper extends SQLiteOpenHelper {
 	public static final String COLUMN_LONGITUDE = "longitude";
 	
 	private static final String DATABASE_CREATE = "CREATE TABLE "
-			+ TABLE_MARKERS + "( "
+			+ TABLE_MARKERS + " ( "
 			+ COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
 			+ COLUMN_DATE + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP, "
 			+ COLUMN_TITLE + " TEXT NOT NULL, "
 			+ COLUMN_CONTRIBUTOR + " TEXT NOT NULL, "
 			+ COLUMN_DESCRIPTION + " TEXT NOT NULL, "
 			+ COLUMN_LATITUDE + " INTEGER, "
-			+ COLUMN_LONGITUDE + " INTEGER, "
-			+ ");";
+			+ COLUMN_LONGITUDE + " INTEGER "
+			+ " ); ";
 	
 	public MarkerDbHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
