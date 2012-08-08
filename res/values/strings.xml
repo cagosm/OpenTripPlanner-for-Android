@@ -57,4 +57,5 @@
     <string name="marker_type">Type</string>
     <string name="marker_contributor">Contributor</string>
     <string name="marker_create">Create Accessibility Marker</string>
+    <string name="access_markers">Access Markers</string>
 </resources>
