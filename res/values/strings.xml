@@ -69,4 +69,5 @@
     <string name="marker_latitude">Latitude</string>
     <string name="marker_longitude">Longitude</string>
     <string name="marker_menu_insert">Create Marker</string>
+    <string name="no_markers_placed">No Markers Placed</string>
 </resources>

@@ -24,28 +24,8 @@
         android:icon="@drawable/ic_launcher_opentripplanner"
         android:label="@string/app_name">
         
-        <provider android:name=".sqlite.MarkerDbProvider" 
-            android:authorities="edu.usf.cutr.opentripplanner.android.providers.Markers">   
-        </provider>
         
-        <activity android:name="MarkerListActivity" android:label="@string/marker_list_title">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.EDIT" />
-                <action android:name="android.intent.action.PICK" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.dir/vnd.google.markers" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.item/vnd.google.marker" />
-            </intent-filter>
-        </activity>
+        
         
         
         <activity
@@ -62,13 +42,8 @@
         </activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".DirectionActivity" />
-        <activity android:name=".MarkerCreationActivity">
-        <intent-filter>
-                <action android:name="android.intent.action.INSERT" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.dir/vnd.google.marker" />
-        </intent-filter> 
-        </activity>
+        <activity android:name=".MarkerCreationActivity"/>
+        <activity android:name=".MarkerListActivity" android:label="@string/marker_list_title"/>
 
         <service android:name=".NavigationService" />
         
@@ -89,5 +64,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    
 
 </manifest>

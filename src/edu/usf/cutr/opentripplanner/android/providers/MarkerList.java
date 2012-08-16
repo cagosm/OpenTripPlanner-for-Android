@@ -8,7 +8,7 @@ public final class MarkerList {
 	public static final class Markers implements BaseColumns{
 		
 		public static final Uri CONTENT_URI = 
-				Uri.parse("content://edu.usf.cutr.opentripplanner.android.Markers/markers");
+				Uri.parse("content://edu.usf.cutr.opentripplanner.android.providers.MarkerList/markers");
 		
 		public static final String DEFAULT_SORT_ORDER = "modified DESC";
 

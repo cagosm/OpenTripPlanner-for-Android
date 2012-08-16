@@ -1,11 +1,10 @@
-package edu.usf.cutr.opentripplanner.android.sqlite;
+package edu.usf.cutr.opentripplanner.android;
 
 
 import java.util.HashMap;
 
-import edu.usf.cutr.opentripplanner.android.MarkerList;
+import edu.usf.cutr.opentripplanner.android.sqlite.MySQLiteHelper;
 import edu.usf.cutr.opentripplanner.android.MarkerList.Markers;
-
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.ContentUris;
@@ -21,7 +20,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
-public class MarkerDbProvider extends ContentProvider{
+public class MarkerProvider extends ContentProvider{
 	
 	public static final String KEY_TITLE = "title";
 	public static final String KEY_TYPE = "type";
@@ -93,11 +92,11 @@ public class MarkerDbHelper extends SQLiteOpenHelper {
 	}
 }
 
-public MarkerDbProvider(Context ctx) {
+public MarkerProvider(Context ctx) {
     this.mCtx = ctx;
 }
 
-public MarkerDbProvider open() throws SQLException {
+public MarkerProvider open() throws SQLException {
     mDbHelper = new MarkerDbHelper(mCtx);
     mDb = mDbHelper.getWritableDatabase();
     return this;

@@ -151,7 +151,7 @@ containing a value of this type.
         public static final int start=0x7f020012;
     }
     public static final class id {
-        public static final int access_markers=0x7f05002e;
+        public static final int access_markers=0x7f05002f;
         public static final int bottom=0x7f050001;
         public static final int btnDisplayDirection=0x7f05001b;
         public static final int btnDisplayMap=0x7f050011;
@@ -164,10 +164,10 @@ containing a value of this type.
         public static final int description=0x7f05000f;
         public static final int directionText=0x7f050017;
         public static final int drag=0x7f05001a;
-        public static final int exit=0x7f05002f;
-        public static final int feedback=0x7f05002c;
+        public static final int exit=0x7f050030;
+        public static final int feedback=0x7f05002d;
         public static final int fromHeader=0x7f050013;
-        public static final int gps_settings=0x7f050029;
+        public static final int gps_settings=0x7f05002a;
         public static final int iconLine=0x7f050006;
         public static final int imgIcon=0x7f050016;
         public static final int itinerarySelection=0x7f050015;
@@ -178,7 +178,7 @@ containing a value of this type.
         public static final int mainFragment=0x7f050004;
         public static final int mapview=0x7f050019;
         public static final int marker_title=0x7f050009;
-        public static final int my_location=0x7f05002a;
+        public static final int my_location=0x7f05002b;
         public static final int panelContent=0x7f05001d;
         public static final int panelHandle=0x7f05001e;
         public static final int relativeLayout1=0x7f05001f;
@@ -186,13 +186,14 @@ containing a value of this type.
         public static final int relativeLayout3=0x7f050025;
         public static final int relativeLayout4=0x7f050018;
         public static final int right=0x7f050003;
-        public static final int server_info=0x7f05002d;
-        public static final int settings=0x7f05002b;
+        public static final int server_info=0x7f05002e;
+        public static final int settings=0x7f05002c;
         public static final int slidingDrawer1=0x7f05001c;
         public static final int spinOptimization=0x7f050027;
         public static final int spinTravelMode=0x7f050026;
         public static final int tbEndLocation=0x7f050023;
         public static final int tbStartLocation=0x7f050020;
+        public static final int text1=0x7f050029;
         public static final int textLine=0x7f050007;
         public static final int title=0x7f05000a;
         public static final int titleHeader=0x7f050012;
@@ -211,8 +212,9 @@ containing a value of this type.
         public static final int edit_marker=0x7f030003;
         public static final int list_direction_header=0x7f030004;
         public static final int list_direction_item=0x7f030005;
-        public static final int main=0x7f030006;
-        public static final int markerlist_item=0x7f030007;
+        public static final int list_markers=0x7f030006;
+        public static final int main=0x7f030007;
+        public static final int markerlist_item=0x7f030008;
     }
     public static final class menu {
         public static final int menu=0x7f090000;
@@ -262,6 +264,7 @@ containing a value of this type.
         public static final int menu_revert=0x7f07002c;
         public static final int my_location=0x7f070006;
         public static final int no_gps_signal=0x7f070005;
+        public static final int no_markers_placed=0x7f070032;
         public static final int refresh_server_list=0x7f07001c;
         public static final int routing_options=0x7f07000f;
         public static final int server_info=0x7f070009;
