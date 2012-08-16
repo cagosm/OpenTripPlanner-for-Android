@@ -58,4 +58,15 @@
     <string name="marker_contributor">Contributor</string>
     <string name="marker_create">Create Accessibility Marker</string>
     <string name="access_markers">Access Markers</string>
+    <string name="marker_delete">Delete</string>
+    <string name="marker_list_title">Markers</string>
+    <string name="marker_edit">Edit Accessibility Marker</string>
+    <string name="error_title">Error</string>
+    <string name="error_message">Error retrieving marker</string>
+    <string name="menu_revert">Revert</string>
+    <string name="menu_discard">Discard</string>
+    <string name="menu_delete">Delete</string>
+    <string name="marker_latitude">Latitude</string>
+    <string name="marker_longitude">Longitude</string>
+    <string name="marker_menu_insert">Create Marker</string>
 </resources>

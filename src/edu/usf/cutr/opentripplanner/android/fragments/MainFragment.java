@@ -620,6 +620,8 @@ OTPGeocodingListener{
 		case R.id.exit:
 			this.getActivity().finish();
 			return true;
+		case R.id.access_markers:
+			break;
 		case R.id.gps_settings:
 			Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 			startActivity(myIntent);
