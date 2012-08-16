@@ -1,3 +1,4 @@
+package edu.usf.cutr.opentripplanner.android;
 //package edu.usf.cutr.opentripplanner.android;
 //
 //
