@@ -70,4 +70,11 @@
     <string name="marker_longitude">Longitude</string>
     <string name="marker_menu_insert">Create Marker</string>
     <string name="no_markers_placed">No Markers Placed</string>
+    <string-array name="marker_types">
+        <item>Curb Ramp</item>
+        <item >Stairs</item>
+        <item>Uneven Pavement</item>
+        <item>Pedestrian Crossing</item>
+        <item>Sidewalk</item>
+    </string-array>
 </resources>

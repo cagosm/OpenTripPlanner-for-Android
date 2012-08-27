@@ -10,6 +10,7 @@ package edu.usf.cutr.opentripplanner.android;
 public final class R {
     public static final class array {
         public static final int available_geocoder_providers=0x7f080000;
+        public static final int marker_types=0x7f080001;
     }
     public static final class attr {
         /**  Defines panel animation duration in ms. 
