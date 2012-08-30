@@ -200,7 +200,7 @@ containing a value of this type.
         public static final int titleHeader=0x7f050012;
         public static final int toHeader=0x7f050014;
         public static final int top=0x7f050000;
-        public static final int type=0x7f05000b;
+        public static final int type_spinner=0x7f05000b;
     }
     public static final class integer {
         public static final int geocoder_max_results=0x7f060000;

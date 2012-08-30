@@ -141,6 +141,7 @@ OTPGeocodingListener{
 	MapOverlay startMarker;
 	MapOverlay endMarker;
 	MapOverlay accessMarker;
+	ArrayList<MapOverlay> accessMarkers;
 	OTPPathOverlay routeOverlay;
 
 	private SharedPreferences prefs;
@@ -369,7 +370,7 @@ OTPGeocodingListener{
 		endMarker.setLocation(currentLocation);
 		mv.getOverlays().add(endMarker);
 		
-		accessMarker = new MapOverlay(this, R.drawable.blue_pause, mainView);
+		
 		
 
 		routeOverlay = new OTPPathOverlay(Color.DKGRAY, activity);
@@ -722,7 +723,9 @@ OTPGeocodingListener{
 			tbEndLocation.setText(addr.getAddressLine(addr.getMaxAddressLineIndex()));
 		}
 		if(markerType == 2){
+			accessMarker = new MapOverlay(this, R.drawable.blue_pause, getView());
 			accessMarker.setLocation(point);
+			accessMarkers.add(accessMarker);
 			mv.getOverlays().add(accessMarker);
 			Intent i = new Intent(this.getActivity(), MarkerCreationActivity.class);
 			i.putExtra("Latitude", point.getLatitudeE6());

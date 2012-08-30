@@ -23,8 +23,8 @@
 
 	
 
-	<EditText
-	    android:id="@+id/type"
+	<Spinner
+	    android:id="@+id/type_spinner"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:hint="@string/marker_type"
@@ -32,7 +32,7 @@
 	    android:ems="10" >
 
 	    
-	</EditText>
+	</Spinner>
 
 
 	<EditText
